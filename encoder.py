@@ -29,3 +29,18 @@ for i in range (1, len(converted_waveA)):
             current_position = current_position - 1
     positions.append(current_position)
 
+#time difference
+dt = t[1] - t[0]
+
+#velocity = distance / time
+velocity = np.diff(positions) / dt
+print(f"Velocity = {velocity}")
+
+#direction
+direction = np.sign(np.mean(velocity))
+if direction == 0:
+    print("There is no direction, as subject is at rest.")
+elif direction == -1 :
+    print("Direction is backwards.")
+else:
+    print("Direction is forwards.")
