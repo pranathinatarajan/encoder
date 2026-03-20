@@ -44,3 +44,17 @@ elif direction == -1 :
     print("Direction is backwards.")
 else:
     print("Direction is forwards.")
+
+#plot 
+fig, axes = plt.subplots(3, 1, figsize=(10, 8))
+samples = int(3*example_ratePerSec / frequency)
+axes[0].plot(t[:samples], converted_waveA[:samples],)
+axes[0].plot(t[:samples], converted_waveB[:samples])
+axes[0].set_title('Signals')
+axes[0].legend()
+axes[1].plot(t[1:], positions)
+axes[1].set_title('Position')
+axes[2].plot(t[2:], velocity)
+axes[2].set_title('Velocity')
+plt.tight_layout()
+plt.show()
